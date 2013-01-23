@@ -13,6 +13,8 @@ currently don't have anything creative for this.. So feel free to suggest!
 
 The warning, error, success, info classes' color themes are stole from bootstrap
 
+Demo: http://c.thekks.net/statusmsg/
+
 **License**: Apache 2
 
 Running Instructions
