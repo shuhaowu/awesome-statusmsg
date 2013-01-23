@@ -1,0 +1,50 @@
+.statusmsg { 
+  position: fixed; 
+  top: 2em; 
+  color: #000; 
+  border-radius: 5px; 
+  background-color: #D4FFA8; 
+  text-align: center; 
+  display: none; 
+  z-index: 1000; 
+  padding: 0.5em 0.8em;
+}
+
+/* stole the following from bootstrap! */
+
+.statusmsg.warning { 
+  background-color: #FCF8E3;
+  color: #C19954;
+  border: 1px solid #FBEED5;
+}
+
+.statusmsg.error{
+  background-color: #F2DEDE;
+  border: 1px solid #EED3D7;
+  color: #B94A48;
+}
+
+.statusmsg.success{
+  background-color: #DFF0D8;
+  border: 1px solid #D6E9C6;
+  color: #468847;
+}
+
+.statusmsg.info{
+  background-color: #D9EDF7;
+  border: 1px solid #BCE8F1;
+  color: #3A87AD;
+}
+
+.statusmsg .closebtn { 
+  float: right; 
+  margin-left: 10px;
+  text-decoration: none;
+  color: #000;
+  opacity: 0.3;
+  font-weight: bold;
+}
+
+.statusmsg .closebtn:hover{
+  opacity: 0.6; 
+}
