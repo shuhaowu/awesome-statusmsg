@@ -30,7 +30,7 @@ To modify the script, feel to modify either the .js or .coffee file. However,
 if you want to submit a pull request, please modify the .coffee file. Source
 should be fairly self explanatory.
 
-Feel free to add stuff into the .css
+Feel free to add stuff into the .css.
 
 Documentations
 --------------
@@ -69,6 +69,11 @@ There are 3 functions that you will ever need to call: `setup`, `open`, `close`.
                   invisible, it will be called immediately.
 
 For historical purposes, `display` aliases to `open` and `hide` aliases to 
-`open`.
+`open`. (So you can call `statusmsg.display` and `statusmsg.hide` instead of
+`statusmsg.open` and `statusmsg.close`)
 
-Check `demo.html` for example usage and demo
+Check `demo.html` for example usage and demo.
+
+If you want additional `type` for your message boxes, just create a new css
+definition for `.statusmsg.<your_type_here>` and pass `"<your_type_here>"` into
+the function
