@@ -1,1 +1,68 @@
-demo.html
+<html>
+  <head>
+    <title>Statusmsg demo/test</title>
+    <link href="statusmsg.css" rel="stylesheet" media="screen" />
+  </head>
+  <body>
+
+    <label>Message box type</label>
+    <select id="type">
+      <option value="">(Default)</option>
+      <option value="warning">warning</option>
+      <option value="error">error</option>
+      <option value="success">success</option>
+      <option value="info">info</option>
+    </select>
+    <ul>
+      <li><a href="#" id="test-open">Open message</a></li>
+      <li><a href="#" id="test-close">Close message</a></li>
+      <li><a href="#" id="test-open-auto-close">Open message and close in 2 sec</a></li>
+      <li><a href="#" id="test-open-closable">Open message (user closable)</a></li>
+      <li><a href="#" id="test-open-callback">Open message with callback</a></li>
+      <li><a href="#" id="test-close-callback">Close message with callback</a></li>
+    </ul>
+
+    <script src="jquery.min.js"></script>
+    <script src="statusmsg.js"></script>
+    <script>
+      $(document).ready(function(){
+        get_type = function(){
+          return $("#type").val();
+        };
+
+        var AWESOME_MESSAGE = "My message box is bigger than your message box!";
+
+        statusmsg.setup(); // important!
+
+        $("#test-open").click(function(e){
+          e.preventDefault();
+          statusmsg.open(AWESOME_MESSAGE, null, get_type());
+        });
+
+        $("#test-close").click(function(e){
+          e.preventDefault();
+          statusmsg.close();
+        });
+
+        $("#test-open-auto-close").click(function(e){
+          e.preventDefault();
+          statusmsg.display(AWESOME_MESSAGE, null, get_type(), 2000);
+        });
+
+        $("#test-open-closable").click(function(e){
+          e.preventDefault();
+          statusmsg.display(AWESOME_MESSAGE, "closable", get_type());
+        });
+
+        $("#test-open-callback").click(function(e){
+          e.preventDefault();
+          statusmsg.display(AWESOME_MESSAGE, null, get_type(), 0, function(){ alert("Callback!"); });
+        });
+
+        $("#test-close-callback").click(function(e){
+          statusmsg.close(function(){ alert("Callback!"); });
+        });
+      })
+    </script>
+  </body>
+</html>
