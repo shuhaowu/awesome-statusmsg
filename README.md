@@ -37,14 +37,21 @@ Feel free to add stuff into the .css.
 Documentations
 --------------
 
-There are 3 functions that you will ever need to call: `setup`, `open`, `close`.
+Since this is now a jQuery plugin, you use it with jQuery (include it after
+jQuery)
 
- - `setup`: You need to the environment by calling `statusmsg.setup()` on `onload`. There
-            are 2 arguments (0 required):
-    - `append_to`: The jQuery selector to append the message box div to. 
-                   defaults to `"body"`
-    - `id`: The id of the message box div, defaults to `statusmsg`. Note, this
-            is not a selector!
+This library uses a singleton approach, as there is no need for multiple copies
+of this as of yet. It is recommended that you base all operations on $("body").
+
+Before you start using the plugin, you must first initialize it with
+
+    $("body").statusmsg();
+
+You could pass in `{id: "your-id"}` into the function to specify your custom
+id for the status message box.
+
+There are 2 actions that you will ever need to call: `open` (`display` is an 
+alias), `close` (`hide` is an alias).
  - `open`: To open the message box. There are 5 arguments (1 required):
     - `msg`: required, this is an html string that's suppose to be inside
              the message box. This should only have 1 line!
@@ -70,9 +77,9 @@ There are 3 functions that you will ever need to call: `setup`, `open`, `close`.
                   called when the box fades out. If the box is already
                   invisible, it will be called immediately.
 
-For historical purposes, `display` aliases to `open` and `hide` aliases to 
-`open`. (So you can call `statusmsg.display` and `statusmsg.hide` instead of
-`statusmsg.open` and `statusmsg.close`)
+The `open` and `close` is passed as a string to the `$("body").statusmsg`
+function as the first argument. Other arguments are passed in as a plain JS
+object.
 
 Check `demo.html` for example usage and demo.
 
