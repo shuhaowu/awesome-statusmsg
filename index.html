@@ -2,6 +2,7 @@
   <head>
     <title>Statusmsg demo/test</title>
     <link href="statusmsg.css" rel="stylesheet" media="screen" />
+    <meta name="viewport" content="width=device-width">
   </head>
   <body>
 
@@ -32,35 +33,35 @@
 
         var AWESOME_MESSAGE = "My message box is bigger than your message box!";
 
-        statusmsg.setup(); // important!
-
+        $("body").statusmsg()
+        
         $("#test-open").click(function(e){
           e.preventDefault();
-          statusmsg.open(AWESOME_MESSAGE, null, get_type());
+          $("body").statusmsg("open", AWESOME_MESSAGE, {type: get_type()});
         });
 
         $("#test-close").click(function(e){
           e.preventDefault();
-          statusmsg.close();
+          $("body").statusmsg("close");
         });
 
         $("#test-open-auto-close").click(function(e){
           e.preventDefault();
-          statusmsg.display(AWESOME_MESSAGE, null, get_type(), 2000);
+          $("body").statusmsg("display", AWESOME_MESSAGE, {type: get_type(), autoclose: 2000});
         });
 
         $("#test-open-closable").click(function(e){
           e.preventDefault();
-          statusmsg.display(AWESOME_MESSAGE, "closable", get_type());
+          $("body").statusmsg("display", AWESOME_MESSAGE, {closable: true, type: get_type()});
         });
 
         $("#test-open-callback").click(function(e){
           e.preventDefault();
-          statusmsg.display(AWESOME_MESSAGE, null, get_type(), 0, function(){ alert("Callback!"); });
+          $("body").statusmsg("display", AWESOME_MESSAGE, {type: get_type(), callback: function() { alert("Callback!"); }});
         });
 
         $("#test-close-callback").click(function(e){
-          statusmsg.close(function(){ alert("Callback!"); });
+          $("body").statusmsg("close", {callback: function() { alert("Callback!"); }});
         });
       })
     </script>
