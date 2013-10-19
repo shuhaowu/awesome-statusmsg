@@ -69,6 +69,9 @@ alias), `close` (`hide` is an alias).
                    is called. Defaults to 0. If another call is made to either
                    `open` or `close`, the timeout event to close the message box
                     will be autocleared.
+    - `unsafe`: Whether to use `.text()` or `.html()` to put the message inside
+                the message box. Defaults to false, which means it will use 
+                `.text()`
     - `callback`: A callback function that takes nothing that gets called
                   when the box faded in. If the box is already visible, it
                   will be called immediately.
