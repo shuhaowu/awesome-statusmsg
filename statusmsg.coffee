@@ -24,11 +24,16 @@ statusmsg =
     type = " " + (options.type or "")
     autoclose = options.autoclose or 0
     callback = options.callback or () -> null
-    
+    unsafe = options.unsafe || false
+
     if closable
       msg += "<a href=\"#\" class=\"closebtn\">&times;</a>"
 
-    statusmsg.msgbox.html(msg)
+    if unsafe
+      statusmsg.msgbox.html(msg)
+    else
+      statusmsg.msgbox.text(msg)
+
     statusmsg.msgbox.removeClass().addClass("statusmsg#{type}")
 
     set_css(statusmsg.msgbox)
