@@ -26,13 +26,13 @@ statusmsg =
     callback = options.callback or () -> null
     unsafe = options.unsafe || false
 
+    if not unsafe
+      msg = $("<div>").text(msg).html()
+
     if closable
       msg += "<a href=\"#\" class=\"closebtn\">&times;</a>"
 
-    if unsafe
-      statusmsg.msgbox.html(msg)
-    else
-      statusmsg.msgbox.text(msg)
+    statusmsg.msgbox.html(msg)
 
     statusmsg.msgbox.removeClass().addClass("statusmsg#{type}")
 
