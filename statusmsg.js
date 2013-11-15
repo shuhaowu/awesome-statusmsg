@@ -40,14 +40,13 @@ Licensed under Apache 2
         return null;
       };
       unsafe = options.unsafe || false;
+      if (!unsafe) {
+        msg = $("<div>").text(msg).html();
+      }
       if (closable) {
         msg += "<a href=\"#\" class=\"closebtn\">&times;</a>";
       }
-      if (unsafe) {
-        statusmsg.msgbox.html(msg);
-      } else {
-        statusmsg.msgbox.text(msg);
-      }
+      statusmsg.msgbox.html(msg);
       statusmsg.msgbox.removeClass().addClass("statusmsg" + type);
       set_css(statusmsg.msgbox);
       if (closable) {
